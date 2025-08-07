@@ -1,9 +1,11 @@
 <script setup>
 import Card from './components/Card.vue'
 import { ref, provide, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import axios from 'axios'
 
 const isDark = ref(false)
+const router = useRouter()
 provide('isDark', isDark)
 function getTheme() {
   isDark.value = !isDark.value
@@ -12,7 +14,7 @@ function getTheme() {
 }
 
 function goHome(){
-  window.location.href="/"
+  router.push('/')
 }
 
 onMounted(() => {
